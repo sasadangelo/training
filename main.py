@@ -1,27 +1,37 @@
-from access_token import AuthData, AccessToken
-from athlete import Athlete
-from stravaio import StravaIO
+import os
+from activity import Activity
 
-auth_data = AuthData(
-    endpoint='https://www.strava.com/api/v3/oauth/token',
-    client_id='105956',
-    client_secret='f86d32922372d893fd6868b2f31b76f098b5229e',
-    refresh_token='a87cf44fb1798360a75d750ba8b2286d59957c6d'
-)
+def seconds_to_mmss(seconds):
+    minutes, seconds = divmod(seconds, 60)
+    return f'{int(minutes):02d}:{int(seconds):02d}'
 
-access_token = AccessToken(auth_data=auth_data).get_access_token()
-print(access_token)
-client = StravaIO(access_token=access_token)
+def seconds_to_hhmmss(seconds):
+    hours, remainder = divmod(seconds, 3600)
+    minutes, seconds = divmod(remainder, 60)
+    return f'{int(hours):02d}:{int(minutes):02d}:{int(seconds):02d}'
 
-#activities = client.get_logged_in_athlete_activities()
-athlete = client.get_logged_in_athlete()
-my_athlete = Athlete(
-    firstname=athlete.api_response.firstname,
-    lastname=athlete.api_response.lastname,
-    city=athlete.api_response.city,
-    state=athlete.api_response.state,
-    country=athlete.api_response.country,
-    sex=athlete.api_response.sex
-)
+def main():
+    folder = 'gpx'
 
-print(my_athlete)
+    for filename in os.listdir(folder):
+        if filename.endswith('.gpx'):
+            file_path = os.path.join(folder, filename)
+            try:
+                activity = Activity(file_path)
+                print(f'Metrics for file: {filename}')
+                print(f'Activity name: {activity.get_name()}')
+                print(f'Activity time: {seconds_to_hhmmss(activity.get_activity_time())}')
+                print(f'Average pace (min/Km): {seconds_to_mmss(activity.get_average_pace())}')
+                print(f'Distance (Km): {activity.get_distance():.2f}')
+                print(f'Average heart rate: {activity.get_average_heart_rate()}')
+                print(f'Max heart rate: {activity.get_max_heart_rate()}')
+                print(f'Average cadence: {activity.get_average_cadence()}')
+                print(f'Max cadence: {activity.get_max_cadence()}')
+                print(f'Elevation Gain: {activity.get_elevation_gain():.1f}')
+                print(f'Elevation Loss: {activity.get_elevation_loss():.1f}')
+                print('-' * 30)
+            except Exception as e:
+                print(f"Error: {str(e)}")
+
+if __name__ == "__main__":
+    main()

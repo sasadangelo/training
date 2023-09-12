@@ -9,9 +9,9 @@ import time
 
 TOKEN_CACHE = {}
 TOKEN_ENDPOINT = 'https://www.strava.com/api/v3/oauth/token'
-CLIENT_ID = 'Put here your Client ID'
-CLIENT_SECRET = 'Put here your Client Secret ID'
-REFRESH_TOKEN = 'Put here your refresh token'
+CLIENT_ID = '105956'
+CLIENT_SECRET = 'f86d32922372d893fd6868b2f31b76f098b5229e'
+REFRESH_TOKEN = 'a87cf44fb1798360a75d750ba8b2286d59957c6d'
 
 # This is the token cache that will be renewed every time it expires
 TOKEN_CACHE = {}
