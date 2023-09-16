@@ -5,7 +5,7 @@
 # elevation gain and loss, heart rate, and cadence.
 #
 # Copyright (c) 2023 Salvatore D'Angelo
-# Maintainer: Your Name sasadangelo@gmail.com
+# Maintainer: Salvatore D'Angelo sasadangelo@gmail.com
 #
 # This file is part of the Running Data Analysis project.
 #
