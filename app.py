@@ -1,4 +1,4 @@
-# GPX Activity Viewer
+# Activities Overview
 #
 # This script loads and displays running activity data from GPX files in a tabular format using Streamlit.
 # It extracts and presents information such as date, name, distance, duration, pace, average heart rate, and elevation gain.
