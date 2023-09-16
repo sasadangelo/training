@@ -11,7 +11,11 @@
     <time>2023-09-09T06:44:05.000Z</time>
   </metadata>
   <trk>
-    <name>MAF (Long)</name>
+    <name>Long Run</name>
+    <desc>Long Run
+5 min walking warm up
+1:10 run/walk
+It was hard, I wasn't able to complete the planned 1:20 long run.</desc>
     <type>running</type>
     <trkseg>
       <trkpt lat="41.76737328059971332550048828125" lon="12.24742175079882144927978515625">

@@ -1,4 +1,4 @@
-venv
+venv/*
 strava_experiments/__pycache__/*
 strava_experiments/my_training.py
 strava_experiments/app/__pycache__/*

@@ -11,7 +11,10 @@
     <time>2023-09-12T05:31:49.000Z</time>
   </metadata>
   <trk>
-    <name>Zone 2 (1h &lt;155 bpm)</name>
+    <name>Slow Run</name>
+    <desc>Slow Run
+Zone 2 (&lt;155 bpm)
+Good Training but a bit hard at the end.</desc>
     <type>running</type>
     <trkseg>
       <trkpt lat="41.7653908766806125640869140625" lon="12.245236672461032867431640625">
