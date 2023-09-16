@@ -4,7 +4,7 @@
 # It provides methods to extract and analyze data from GPX files, including metrics like duration, distance, pace,
 # elevation gain and loss, heart rate, and cadence.
 #
-# Copyright (c) 2023 Salvatore D'Angelo
+# Copyright (C) 2023 Salvatore D'Angelo
 # Maintainer: Salvatore D'Angelo sasadangelo@gmail.com
 #
 # This file is part of the Running Data Analysis project.
