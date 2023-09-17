@@ -49,7 +49,7 @@ class ActivityOverviewPage:
                 try:
                     activity = Activity(file_path)
                     activities_data.append([
-                        activity.get_activity_time(),  # Date (without time)
+                        activity.get_time(),  # Date (without time)
                         activity.get_name(),
                         f'{activity.get_distance():.2f}',
                         self.__seconds_to_hhmmss(activity.get_duration()),

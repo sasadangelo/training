@@ -41,7 +41,9 @@ class Activity:
         self.activity_data = None
         
         # Initialize attributes for various activity metrics
-        self.activity_time = None
+        self.time = None
+        self.name = None
+        self.description = None
         self.duration = None
         self.distance = None
         self.average_pace = None
@@ -75,7 +77,8 @@ class Activity:
             # resulting in a tabular data structure with only the available columns.
             activity_data = []
             for track in gpx.tracks:
-                self.activity_name = track.name
+                self.name = track.name
+                self.description = track.description
                 for segment in track.segments:
                     for point in segment.points:
                         data_point = {
@@ -92,10 +95,10 @@ class Activity:
                         activity_data.append(data_point)
             self.activity_data = pd.DataFrame(activity_data)
 
-            # The activity_time attribute stores the timestamp of the initial data point captured during the 
+            # The self.time attribute stores the timestamp of the initial data point captured during the 
             # workout session. This timestamp represents the starting time of the activity, as recorded in the 
             # GPX file. It is the time at which the workout session commenced.            
-            self.activity_time = self.activity_data['time'].iloc[0]
+            self.time = self.activity_data['time'].iloc[0]
 
             # Once the activity_data DataFrame is available, computing average and maximum values for
             # 'hr' (heart rate) and 'cadence' becomes straightforward. We use the mean() and max() functions
@@ -119,12 +122,16 @@ class Activity:
             raise Exception(f"Error while reading GPX file '{file_path}': {str(e)}")
 
     # Get the date and time of the activity.
-    def get_activity_time(self):
-        return self.activity_time
+    def get_time(self):
+        return self.time
 
     # Get the name or description of the activity.
     def get_name(self):
-        return self.activity_name
+        return self.name
+
+    # Get the name or description of the activity.
+    def get_description(self):
+        return self.description
 
     # Get the raw data for the activity.
     def get_activity_data(self):

@@ -24,7 +24,7 @@ def main():
             try:
                 activity = Activity(file_path)
                 table_data.append([
-                    activity.get_activity_time().strftime('%Y-%m-%d'),  # Date (without time)
+                    activity.get_time().strftime('%Y-%m-%d'),  # Date (without time)
                     activity.get_name(),
                     f'{activity.get_distance():.2f}',
                     seconds_to_hhmmss(activity.get_duration()),
