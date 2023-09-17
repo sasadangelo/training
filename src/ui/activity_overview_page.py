@@ -11,9 +11,9 @@
 #
 # SPDX-License-Identifier: MIT
 import os
-from activity import Activity
 import streamlit as st
 import pandas as pd
+from src.lib.activity import Activity
 
 # This class is responsible for displaying an overview of running activities using Streamlit.
 # It loads and processes activity data from GPX files, including metrics such as date, name, distance,

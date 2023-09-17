@@ -10,7 +10,7 @@
 # This file is part of the Running Data Analysis project.
 #
 # SPDX-License-Identifier: MIT
-from activity_overview_page import ActivityOverviewPage
+from src.ui.activity_overview_page import ActivityOverviewPage
 
 # This class is responsible for managing the Streamlit application
 # and navigation between different pages. It initializes the initial page, handles page selection,

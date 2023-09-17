@@ -1,7 +1,7 @@
 import os
-from activity import Activity
 from tabulate import tabulate
 from datetime import datetime
+from src.lib.activity import Activity
 
 def seconds_to_mmss(seconds):
     minutes, seconds = divmod(seconds, 60)

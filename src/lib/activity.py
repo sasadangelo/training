@@ -12,8 +12,7 @@
 # SPDX-License-Identifier: MIT
 import gpxpy
 import pandas as pd
-from elevation import CumulativeElevationCalculator
-
+from src.lib.elevation import CumulativeElevationCalculator
 
 # Represents a single running workout and manages associated data, including:
 # - Workout Duration
