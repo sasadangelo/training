@@ -1,4 +1,4 @@
-# Activity Class - Manage Running Workout Data
+# Activity - Manage Running Workout Data
 #
 # This module defines the Activity class, which is responsible for managing data related to running workouts.
 # It provides methods to extract and analyze data from GPX files, including metrics like duration, distance, pace,
@@ -119,41 +119,54 @@ class Activity:
             # Raise an exception if there's an error while reading the GPX file
             raise Exception(f"Error while reading GPX file '{file_path}': {str(e)}")
 
+    # Get the date and time of the activity.
     def get_activity_time(self):
         return self.activity_time
 
+    # Get the name or description of the activity.
     def get_name(self):
         return self.activity_name
 
+    # Get the raw data for the activity.
     def get_activity_data(self):
         return self.activity_data
     
+    # Get the duration of the activity in seconds.
     def get_duration(self):
         return self.duration
 
+    # Get the distance covered during the activity in kilometers.
     def get_distance(self):
         return self.distance
 
+    # Get the average pace of the activity in minutes per kilometer.
     def get_average_pace(self):
         return self.average_pace
 
+    # Get the average heart rate during the activity.
     def get_average_heart_rate(self):
         return self.average_heart_rate
 
+    # Get the maximum heart rate during the activity.
     def get_max_heart_rate(self):
         return self.max_heart_rate
 
+    # Get the average cadence (steps per minute) during the activity.
     def get_average_cadence(self):
         return self.average_cadence
 
+    # Get the maximum cadence (steps per minute) during the activity.
     def get_max_cadence(self):
         return self.max_cadence
 
+    # Get the elevation gain during the activity.
     def get_elevation_gain(self):
         return self.elevation_gain
 
+    # Get the elevation loss during the activity.
     def get_elevation_loss(self):
         return self.elevation_loss
 
+    # Set the elevation calculator used for elevation calculations.
     def set_elevation_calculator(self, elevation_calculator):
         self.elevation_calculator = elevation_calculator
