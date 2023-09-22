@@ -10,8 +10,11 @@
 # This file is part of the Running Data Analysis project.
 #
 # SPDX-License-Identifier: MIT
+import streamlit as st
 from src.ui.activity_overview_page import ActivityOverviewPage
+from src.ui.profile_page import ProfilePage
 from src.ui.session import Session
+from streamlit_option_menu import option_menu
 
 def Singleton(cls):
     instances = {}
@@ -35,7 +38,7 @@ class TrainingApp:
 
     # Runs the TrainingApp and initializes the first page as ActivityOverviewPage.
     def run(self):
-        self.select_page(ActivityOverviewPage(self.session))
+        self.__create_sidebar_menu()
 
     # Selects and renders the current page based on user navigation logic.
     def select_page(self, page):
@@ -55,6 +58,20 @@ class TrainingApp:
     # Get the application session
     def get_session(self):
         return self.session
+
+    # Create the sidebar menu with two options:
+    # - Activities, it shows all the athlete's activities
+    # - Profile, it shows the athlete's profile
+    def __create_sidebar_menu(self):
+        with st.sidebar:
+            menu_choice = option_menu("Menu", ["Activities", 'Profile'], 
+                icons=['list', 'person'], menu_icon="cast", default_index=0)
+
+        # Select the page to show depending on the menu option the user selected
+        if menu_choice == "Activities":
+            self.select_page(ActivityOverviewPage(self.session))
+        elif menu_choice == "Profile":
+            self.select_page(ProfilePage(self.session))
 
 if __name__ == "__main__":
     app = TrainingApp()

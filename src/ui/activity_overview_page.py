@@ -1,4 +1,4 @@
-# ActivityOverviewPage - Display Overview of Running Activities
+# ActivityOverviewPage - Display Athlete's Running Activities
 #
 # This class is responsible for displaying an overview of running activities using Streamlit.
 # It loads and processes activity data from GPX files, including metrics such as date, name, distance,
@@ -10,7 +10,6 @@
 # This file is part of the Running Data Analysis project.
 #
 # SPDX-License-Identifier: MIT
-import os
 import streamlit as st
 import pandas as pd
 from src.lib.activity import Activity
@@ -22,7 +21,7 @@ from src.ui.page import Page
 class ActivityOverviewPage(Page):
     # Initializes the ActivityOverviewPage and loads running activities from GPX files.
     def __init__(self, session):
-        self.session = session
+        super().__init__(session)
 
     # Renders the overview of running activities, displaying the data in a table.
     def render(self):

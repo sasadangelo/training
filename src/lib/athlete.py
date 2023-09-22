@@ -88,3 +88,29 @@ class Athlete:
     def get_activities(self):
         return self.activities
 
+    def get_username(self):
+        return self.username
+
+    def get_first_name(self):
+        return self.first_name
+
+    def get_last_name(self):
+        return self.last_name
+
+    def get_birth_date(self):
+        return self.birth_date
+
+    def get_gender(self):
+        return self.gender
+
+    def get_location(self):
+        return self.location
+
+    def get_bio(self):
+        return self.bio
+
+
+
+
+
+

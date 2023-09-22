@@ -12,5 +12,8 @@
 # This class represents a generic application page. All the application pages must
 # derive from this class.
 class Page:
+    def __init__(self, session):
+        self.session = session
+    
     def render(self):
         raise NotImplementedError("Subclasses must implement the render method")
