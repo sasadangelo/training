@@ -13,7 +13,7 @@
 import streamlit as st
 from src.ui.activity_overview_page import ActivityOverviewPage
 from src.ui.profile_page import ProfilePage
-from src.ui.session import Session
+from src.lib.athlete import Athlete
 from streamlit_option_menu import option_menu
 
 def Singleton(cls):
@@ -34,7 +34,7 @@ class TrainingApp:
     # The constructor load all the activities in the gpx folder of the logged in user.
     def __init__(self):
         self.current_page = None
-        self.session = Session() 
+        st.session_state.logged_in_user = None
 
     # Runs the TrainingApp and initializes the first page as ActivityOverviewPage.
     def run(self):
@@ -49,15 +49,13 @@ class TrainingApp:
 
     # Login the input username in the session
     def login(self, username):
-        self.session.login(username)
+        st.session_state.logged_in_user = Athlete(username)
+        #self.session.login(username)
 
     # Logout the current user from the session
     def logout(self):
-        self.session.logout()
-
-    # Get the application session
-    def get_session(self):
-        return self.session
+        st.session_state.logged_in_user = None
+        #self.session.logout()
 
     # Create the sidebar menu with two options:
     # - Activities, it shows all the athlete's activities
@@ -69,9 +67,9 @@ class TrainingApp:
 
         # Select the page to show depending on the menu option the user selected
         if menu_choice == "Activities":
-            self.select_page(ActivityOverviewPage(self.session))
+            self.select_page(ActivityOverviewPage())
         elif menu_choice == "Profile":
-            self.select_page(ProfilePage(self.session))
+            self.select_page(ProfilePage())
 
 if __name__ == "__main__":
     app = TrainingApp()

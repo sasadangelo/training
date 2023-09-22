@@ -19,10 +19,6 @@ from src.ui.page import Page
 # It loads and processes activity data from GPX files, including metrics such as date, name, distance,
 # duration, pace, average heart rate, and elevation gain. It also handles the rendering of the data in a table format.
 class ActivityOverviewPage(Page):
-    # Initializes the ActivityOverviewPage and loads running activities from GPX files.
-    def __init__(self, session):
-        super().__init__(session)
-
     # Renders the overview of running activities, displaying the data in a table.
     def render(self):
         st.title("Activities Overview")
@@ -30,10 +26,11 @@ class ActivityOverviewPage(Page):
         # if there are no activities in the gpx folder a warning message aappears,
         # otherwise a dataframe is created with an overview of all the activities
         # that are displayed on the streamlit page.
-        if not self.session.get_logged_in_user():
+        athlete = st.session_state.logged_in_user
+        if not athlete:
             st.warning("No GPX activities found in the 'gpx' folder.")
         else:
-            df = self.__create_dataframe(self.session.get_logged_in_user().get_activities())
+            df = self.__create_dataframe(athlete.get_activities())
             self.__display_table(df)
 
     # Creates a pandas DataFrame from the loaded activity data and performs sorting and formatting.

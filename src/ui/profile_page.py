@@ -20,13 +20,10 @@ from src.ui.page import Page
 # - Location
 # - Bio
 class ProfilePage(Page):
-    def __init__(self, session):
-        super().__init__(session)
-
     # Renders the profile page
     def render(self):
         # the session contains the leogged in athlete
-        athlete = self.session.get_logged_in_user()
+        athlete = st.session_state.logged_in_user
 
         # if the user is logged we show his information, 
         # otherwise we show a warning message.
